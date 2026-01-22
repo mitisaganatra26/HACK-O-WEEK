@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Bites | Order Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- CSS STYLING --- */
+        
+        /* 1. Reset & Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: #f3f4f6; /* Light Grey Background */
+            color: #1f2937;
+        }
+
+        /* 2. Navigation */
+        nav {
+            background-color: #fff;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px -1px rgba(109, 36, 36, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ff4757; /* Vibrant Red-Orange */
+        }
+
+        .cart-icon {
+            background: #ffe2e5;
+            color: #ff4757;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+
+        /* 3. Hero Section */
+        header {
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: #6b7280;
+        }
+
+        /* 4. Menu Grid Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 50px 20px;
+        }
+
+        .section-title {
+            margin: 2rem 0 1rem 0;
+            font-size: 1.5rem;
+            border-left: 5px solid #ff4757;
+            padding-left: 15px;
+        }
+
+        .grid {
+            display: grid;
+            /* Creates 3 columns that shrink/grow automatically */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* 5. Modern Card Design */
+        .card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            border: 1px solid #e5e7eb;
+        }
+
+        .card:hover {
+            transform: translateY(-5px); /* Lift effect */
+        }
+
+        .card-img-wrapper {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .rating {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgb(226, 221, 221);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #1f2937;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* 6. Card Content */
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .dish-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            color: #ff4757;
+            font-weight: 700;
+        }
+
+        .desc {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        /* 7. Quantity Controls */
+        .action-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .qty-control {
+            display: flex;
+            align-items: center;
+            background: #f3f4f6;
+            border-radius: 50px;
+            padding: 5px;
+        }
+
+        .qty-btn {
+            width: 30px;
+            height: 30px;
+            background: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: 700;
+            color: #ff4757;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: background 0.2s;
+        }
+
+        .qty-btn:hover {
+            background: #ff4757;
+            color: white;
+        }
+
+        .qty-display {
+            width: 30px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .add-btn {
+            background-color: #1f2937;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .add-btn:hover {
+            background-color: #374151;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><marquee>Flamboyanté</marquee></div>
+        <div class="cart-icon">Cart (0)</div>
+    </nav>
+
+    <header>
+        <h1>Where taste discribe Luxary.</h1>
+        <p>Fresh ingredients, delivered hot.</p>
+    </header>
+
+    <div class="container">
+        
+        <h2 class="section-title">Popular Burgers</h2>
+        <div class="grid">
+            
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="rating">★ 4.8</span>
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&fit=crop" alt="Burger">
+                </div>
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="dish-name">Classic Smash</h3>
+                        <span class="price">Rs.399</span>
+                    </div>
+                    <p class="desc">Double beef patty, american cheese, pickles, and secret sauce.</p>
+                    
+                    <div class="action-row">
+                        <div class="qty-control">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-display">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                        <button class="add-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="rating">★ 4.5</span>
+                    <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=500&fit=crop" alt="Chicken Burger">
+                </div>
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="dish-name">Spicy Crispy Chicken</h3>
+                        <span class="price">Rs.599</span>
+                    </div>
+                    <p class="desc">Fried chicken thigh, spicy mayo, lettuce on a brioche bun.</p>
+                    
+                    <div class="action-row">
+                        <div class="qty-control">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-display">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                        <button class="add-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="rating">★ 4.9</span>
+                    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=500&fit=crop" alt="Veg Burger">
+                </div>
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="dish-name">Mushroom Swiss</h3>
+                        <span class="price">$13</span>
+                    </div>
+                    <p class="desc">Grilled mushrooms, swiss cheese, caramelized onions (Veg).</p>
+                    
+                    <div class="action-row">
+                        <div class="qty-control">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-display">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                        <button class="add-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <h2 class="section-title">Pizza & Sides</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="rating">★ 4.7</span>
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&fit=crop" alt="Pizza">
+                </div>
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="dish-name">Pepperoni Feast</h3>
+                        <span class="price">Rs.499</span>
+                    </div>
+                    <p class="desc">Mozzarella, tomato sauce, double pepperoni, and oregano.</p>
+                    
+                    <div class="action-row">
+                        <div class="qty-control">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-display">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                        <button class="add-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="rating">★ 4.6</span>
+                    <img src="https://images.unsplash.com/photo-1541014741259-de529411b96a?w=500&fit=crop" alt="Fries">
+                </div>
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="dish-name">Truffle Fries</h3>
+                        <span class="price">Rs.699</span>
+                    </div>
+                    <p class="desc">Crispy french fries tossed in truffle oil and parmesan.</p>
+                    
+                    <div class="action-row">
+                        <div class="qty-control">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-display">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                        <button class="add-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+             <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="rating">★ 4.7</span>
+                    <img src="https://images.unsplash.com/photo-1585109649139-366815a0d713?w=500&fit=crop" alt="BBQ Fries">
+                </div>
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="dish-name">BBQ Loaded Fries</h3>
+                        <span class="price">Rs.299</span>
+                    </div>
+                    <p class="desc">Golden fries topped with smokey BBQ sauce, melted cheddar, and bacon bits.</p>
+                    
+                    <div class="action-row">
+                        <div class="qty-control">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-display">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                        <button class="add-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+
+
+
+    <script>
+        function updateQty(btn, change) {
+            // Find the <span> element showing the number (it's the sibling of the button)
+            const display = btn.parentElement.querySelector('.qty-display');
+            
+            // Get current value
+            let currentQty = parseInt(display.innerText);
+            
+            // Calculate new value
+            let newQty = currentQty + change;
+            
+            // Prevent going below 0
+            if (newQty < 0) {
+                newQty = 0;
+            }
+
+            // Update the text
+            display.innerText = newQty;
+        }
+    </script>
+</body>
+</html>
