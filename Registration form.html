@@ -1,0 +1,141 @@
+<html>
+<head>
+<title>Registration form</title>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+/* Background image with opacity */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("green background.jpg") no-repeat center center/cover;
+  opacity: 1;  /* Control transparency */
+  z-index: -1;   /* Keep it behind content */
+}
+
+/* form styling */
+.form-container {
+  max-width: 600px;
+  margin: 10px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.7); /* faint white */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+}
+.form-container label {
+  display: block;
+  margin-bottom: 3px;
+}
+.form-container input,
+.form-container textarea,
+.form-container select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+}
+
+/* make radio and checkbox groups tighter */
+.radio-group,
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;       /* small spacing */
+  margin-bottom: 15px;
+}
+.radio-group label,
+.checkbox-group label {
+  display: inline-flex;
+  align-items: center;
+  font-weight: normal;
+  margin: 0;
+  gap: 4px;
+}
+
+/* buttons */
+.form-container .buttons {
+  display: flex;
+  justify-content: space-between;
+}
+button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.submit-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+.cancel-btn {
+  background-color: #f44336;
+  color: white;
+}
+</style>
+</head>
+<body>
+<center>
+<h1>SYMBIOSIS INSTITUTE OF TECHNOLOGY, NAGPUR </h1>
+<h2>International Conference on Artificial Intelligence-2025</h2><hr>
+<h2>Registration Form:</h2><hr>
+</center>
+
+<form action="script_URL" method="GET" class="form-container">
+  <label>Enter your name:
+    <input type="text" name="enter_your_name">
+  </label>
+<label>Date of Birth:
+    <input type="date" name="dob" >
+  </label>
+<label>Enter your Email:
+    <input type="email" name="email" >
+  </label>
+
+  <label>Enter your Mobile Number:
+    <input type="tel" name="mobile" >
+  </label>
+  <label>Enter your Address:</label>
+  <textarea rows="5" cols="50" name="Address">Enter your Address here...</textarea>
+
+  <p>Choose your role in session:</p>
+  <div class="radio-group">
+    <label><input type="radio" name="category" value="Guest"> Guest</label>
+    <label><input type="radio" name="category" value="Speaker"> Speaker</label>
+    <label><input type="radio" name="category" value="Presentation"> Presentation</label>
+    <label><input type="radio" name="category" value="Delegate"> Delegate</label>
+  </div>
+
+  <p>Choose the sessions you want to attend:</p>
+  <div class="checkbox-group">
+    <label><input type="checkbox" name="Key_note"> Key note</label>
+    <label><input type="checkbox" name="AI_Theory"> AI Theory</label>
+    <label><input type="checkbox" name="AI_Workshop"> AI Workshop</label>
+    <label><input type="checkbox" name="Expert_Discussion"> Expert Discussion</label>
+  </div>
+
+  <label for="category">Choose your Category:</label>
+  <select name="dropdown" id="category">
+    <option value="Professor" selected>Professor</option>
+    <option value="Assistant Professor">Assistant Professor</option>
+    <option value="Associate Professor">Associate Professor</option>
+    <option value="Student">Student</option>
+    <option value="Invited Guest">Invited Guest</option>
+  </select>
+<label> Upload Your Passport Size Photograph :</label>
+<input type = "file" name = "fileupload" accept = "image/*" />
+  <div class="buttons">
+    <button type="submit" class="submit-btn">Submit</button>
+    <button type="reset" class="cancel-btn">Reset</button>
+  </div>
+</form>
+</body>
+</html>
