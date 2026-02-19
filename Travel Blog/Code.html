@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Diaries | Explore India</title>
+    <style>
+        /* Basic Setup */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFB6C1;
+            color: #333;
+        }
+
+        /* Simple Navigation */
+        nav {
+            background-color: #2c3e50;
+            padding: 15px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            color: #fff;
+            font-size: 22px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        /* Clean Header */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #f4f4f4;
+            border-bottom: 1px solid #ddd;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        header p {
+            color: #7f8c8d;
+        }
+
+        /* Blog Grid */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        /* Article Cards */
+        .post-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .post-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .post-info {
+            padding: 20px;
+        }
+
+        .post-info span {
+            font-size: 12px;
+            color: #e67e22;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .post-info h3 {
+            margin: 10px 0;
+            font-size: 20px;
+        }
+
+        .post-info p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #f4f4f4;
+            margin-top: 50px;
+            font-size: 13px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">Travel Diaries</a>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">States</a></li>
+            <li><a href="#">Food</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Indian Road-trips & Hidden Gems</h1>
+        <p>Short stories and simple guides for the modern Indian traveler.</p>
+    </header>
+
+    <main class="container">
+        <div class="post-card">
+            <img src="https://images.news18.com/ibnlive/uploads/2025/04/image-2025-04-c18b42a014166707025a97ffbfa7b497-16x9.jpg?impolicy=website&width=400&height=225" alt="Manali">
+            <div class="post-info">
+                <span>Himachal Pradesh</span>
+                <h3><a href="https://www.google.com/maps/place/Manali,+Himachal+Pradesh/@32.239538,77.1459198,13z/data=!3m1!4b1!4m6!3m5!1s0x39048708163fd03f:0x8129a80ebe5076cd!8m2!3d32.2431872!4d77.1891761!16zL20vMDQ2eDR4?entry=ttu&g_ep=EgoyMDI2MDIxNi4wIKXMDSoASAFQAw%3D%3D">Winter in Old Manali</a></h3>
+                <p>Experience the magic of the Himalayas under a blanket of white. From cozy riverside cafes to the charm of wooden houses, here is why winter is the best time for slow travel.</p>
+            </div>
+        </div>
+
+        <div class="post-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6mKbHY64yVAf88JWFmM_dS6KjEaeeWSjBZA&s" alt="Hampi">
+            <div class="post-info">
+                <span>Karnataka</span>
+                <h3><a href="https://www.google.com/maps/place/Vijayanagar,+Bengaluru,+Karnataka/@12.9706527,77.5121428,14z/data=!3m1!4b1!4m6!3m5!1s0x3bae3dd95efc3ae7:0xc90db791aedd9aad!8m2!3d12.975596!4d77.5353881!16s%2Fm%2F02613d8?entry=ttu&g_ep=EgoyMDI2MDIxNi4wIKXMDSoASAFQAw%3D%3D">Walking Among Giants</a></h3>
+                <p>Step back in time at the ruins of the Vijayanagara Empire. Explore the boulder-strewn landscapes and intricate stone carvings that make this UNESCO site a surreal escape.</p>
+            </div>
+        </div>
+
+        <div class="post-card">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/5e/59/d4/alleppey-backwater-tour.jpg?w=800&h=-1&s=1" alt="Kerala">
+            <div class="post-info">
+                <span>Kerala</span>
+                <h3><a href="https://www.google.com/maps/place/Alappuzha,+Kerala/@9.5009628,76.2590446,12z/data=!3m1!4b1!4m6!3m5!1s0x3b0884f1aa296b61:0xb84764552c41f85a!8m2!3d9.4980667!4d76.3388484!16zL20vMGIwOXF5?entry=ttu&g_ep=EgoyMDI2MDIxNi4wIKXMDSoASAFQAw%3D%3D">The Backwater Slowdown</a></h3>
+                <p>Trade the busy tourist circuits for the quiet life in Alleppey. Discover hidden canals, authentic home-cooked meals, and the peaceful rhythm of life on a traditional houseboat.</p>
+            </div>
+        </div>
+<div class="post-card">
+            <img src="https://www.ekashmirtourism.com/wp-content/uploads/2022/08/dal-lake-winter.jpg" alt="Srinagar">
+            <div class="post-info">
+                <span>Kashmir</span>
+                <h3><a href="https://www.google.com/maps/place/Srinagar/@34.1008701,74.6013367,10.75z/data=!4m6!3m5!1s0x38e1855686e3c5ef:0x66244b7cc1e305c6!8m2!3d34.0836708!4d74.7972825!16zL20vMDFxXzIy?entry=ttu&g_ep=EgoyMDI2MDIxNi4wIKXMDSoASAFQAw%3D%3D">Paradise on Earth</a></h3>
+                <p>Srinagar, the summer capital of Jammu and Kashmir, is a picturesque city known as "Paradise on Earth," located in the Kashmir Valley at 1,585 meters above sea level on the Jhelum River.</p>
+            </div>
+        </div>
+<div class="post-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlJLvaB-lV6BeaN5oc7fyyFVITuR9H1h0P0g&s" alt="Kaziranga National Park">
+            <div class="post-info">
+                <span>Assam</span>
+                <h3><a href="https://www.google.com/maps/search/kaziranga+national+park/@26.6445044,93.0888139,11z?entry=ttu&g_ep=EgoyMDI2MDIxNi4wIKXMDSoASAFQAw%3D%3D">Where Tea Meets the Wild.</a></h3>
+                <p>a 430 sq. km UNESCO World Heritage site (designated 1985) famed for harboring two-thirds of the world's population of endangered Indian one-horned rhinoceros. The park is a premier conservation site featuring biodiversity, including the "Big Five" (rhino, elephant, royal Bengal tiger, eastern swamp deer, and wild water buffalo).</p>
+            </div>
+        </div>
+<div class="post-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSTK9-WS4wYkq3UanBL0bmVaUOVj298-pAbA&s" alt="Udaipur">
+            <div class="post-info">
+                <span>Rajasthan</span>
+                <h3><a href="https://www.google.com/maps/place/Udaipur,+Rajasthan/@24.6082862,73.7048721,13z/data=!3m1!4b1!4m6!3m5!1s0x3967e56550a14411:0xdbd8c28455b868b0!8m2!3d24.585445!4d73.712479!16zL20vMGJfa2Z5?entry=ttu&g_ep=EgoyMDI2MDIxNi4wIKXMDSoASAFQAw%3D%3D">Land of Kings</a></h3>
+                <p>Udaipur, known as the "City of Lakes" and "Venice of the East," is a premier tourist destination in Rajasthan, India, renowned for its romantic setting, white marble palaces, and scenic, interconnected lakes.</p>
+            </div>
+        </div>
+
+
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Travel Diaries. Made with ❤️ in India.</p>
+    </footer>
+
+</body>
+</html>
