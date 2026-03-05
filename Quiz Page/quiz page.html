@@ -1,0 +1,126 @@
+Conversation opened. 1 read message.
+
+
+Skip to content
+Using Gmail with screen readers
+1 of 844
+hakoweek project quize
+Inbox
+
+Sunil Ganatra
+Attachments
+8:28 AM (2 hours ago)
+to me
+
+
+
+ 5 Attachments
+  •  Scanned by Gmail
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Questions</title>
+    <link rel="stylesheet" href="stylesheet1.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="site-header">
+        <h1>Computer Science Quiz</h1>
+        <p>Please Enter Your Name and Answer All Questions</p>
+    </div>
+
+    <div class="card">
+        <form id="quizForm">
+
+            <label>Your Name:</label>
+            <input type="text" id="username" required>
+
+            <h3>1. What does CPU stand for?</h3>
+            <input class="quiz-option" type="radio" name="q1" value="1"> Central Processing Unit<br>
+            <input class="quiz-option" type="radio" name="q1" value="0"> Computer Personal Unit<br>
+            <input class="quiz-option" type="radio" name="q1" value="0"> Central Print Unit<br><br>
+
+            <h3>2. Which language is used for web development?</h3>
+            <input type="radio" name="q2" value="1"> HTML<br>
+            <input type="radio" name="q2" value="0"> C++<br>
+            <input type="radio" name="q2" value="0"> Python<br><br>
+
+            <h3>3. What is RAM?</h3>
+            <input type="radio" name="q3" value="1"> Random Access Memory<br>
+            <input type="radio" name="q3" value="0"> Read Access Memory<br>
+            <input type="radio" name="q3" value="0"> Rapid Access Module<br><br>
+
+            <h3>4. Which is an operating system?</h3>
+            <input type="radio" name="q4" value="1"> Windows<br>
+            <input type="radio" name="q4" value="0"> Google<br>
+            <input type="radio" name="q4" value="0"> Intel<br><br>
+
+            <h3>5. What does HTTP stand for?</h3>
+            <input type="radio" name="q5" value="1"> HyperText Transfer Protocol<br>
+            <input type="radio" name="q5" value="0"> High Transfer Text Protocol<br>
+            <input type="radio" name="q5" value="0"> Hyper Transfer Text Program<br><br>
+
+            <h3>6. Which is a programming language?</h3>
+            <input type="radio" name="q6" value="1"> Java<br>
+            <input type="radio" name="q6" value="0"> Chrome<br>
+            <input type="radio" name="q6" value="0"> Windows<br><br>
+
+            <h3>7. What does DBMS stand for?</h3>
+            <input type="radio" name="q7" value="1"> Database Management System<br>
+            <input type="radio" name="q7" value="0"> Data Backup Management System<br>
+            <input type="radio" name="q7" value="0"> Digital Base Management System<br><br>
+
+            <h3>8. Which device is used for input?</h3>
+            <input type="radio" name="q8" value="1"> Keyboard<br>
+            <input type="radio" name="q8" value="0"> Monitor<br>
+            <input type="radio" name="q8" value="0"> Printer<br><br>
+
+            <h3>9. Which is a database?</h3>
+            <input type="radio" name="q9" value="1"> MySQL<br>
+            <input type="radio" name="q9" value="0"> Linux<br>
+            <input type="radio" name="q9" value="0"> CPU<br><br>
+
+            <h3>10. Binary number system uses:</h3>
+            <input type="radio" name="q10" value="1"> 0 and 1<br>
+            <input type="radio" name="q10" value="0"> 1 to 10<br>
+            <input type="radio" name="q10" value="0"> 0 to 9<br><br>
+
+            <button type="button" class="btn btn-primary" onclick="calculateScore()">Submit Quiz</button>
+        </form>
+    </div>
+
+    <div class="footer">
+        © 2026 Quiz System
+    </div>
+
+</div>
+
+<script>
+function calculateScore() {
+    let score = 0;
+    let form = document.forms["quizForm"];
+    let name = document.getElementById("username").value;
+
+    for (let i = 1; i <= 10; i++) {
+        let q = form["q" + i];
+        if (q) {
+            for (let j = 0; j < q.length; j++) {
+                if (q[j].checked) {
+                    score += parseInt(q[j].value);
+                }
+            }
+        }
+    }
+
+    localStorage.setItem("quizName", name);
+    localStorage.setItem("quizScore", score);
+    window.location.href = "result.html";
+}
+</script>
+
+</body>
+</html>
+quiz.html
+Displaying quiz.html.
