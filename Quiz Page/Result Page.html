@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Result</title>
+    <link rel="stylesheet" href="stylesheet1.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="site-header">
+        <h1>Quiz Result</h1>
+        <p>Your Performance Summary</p>
+    </div>
+
+    <div class="card" style="text-align:center;">
+        <h2 id="resultText"></h2>
+        <br>
+        <a href="index.html" class="btn btn-primary">Back to Home</a>
+    </div>
+
+    <div class="footer">
+        © 2026 Quiz System
+    </div>
+
+</div>
+
+<script>
+let name = localStorage.getItem("quizName");
+let score = localStorage.getItem("quizScore");
+
+document.getElementById("resultText").innerHTML =
+    "Congratulations " + name + "! <br><br>Your Score: " + score + " / 10";
+</script>
+
+</body>
+</html>
