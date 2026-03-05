@@ -1,0 +1,246 @@
+/* ===========================
+   GLOBAL SETTINGS
+=========================== */
+
+:root {
+    --primary-color: #1f3c88;
+    --secondary-color: #2b6cb0;
+    --accent-color: #3182ce;
+    --background-color: #f4f6f9;
+    --card-background: #ffffff;
+    --text-color: #2d3748;
+    --border-color: #e2e8f0;
+    --success-color: #2f855a;
+    --danger-color: #c53030;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* ===========================
+   WEBSITE TITLE / HEADER
+=========================== */
+
+.site-header {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    padding: 20px 30px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.site-header h1 {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.site-header p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* ===========================
+   CONTAINER / CARD
+=========================== */
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.card {
+    background: var(--card-background);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+/* ===========================
+   TABLE STYLING
+=========================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background: white;
+}
+
+table thead {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+table tbody tr:hover {
+    background-color: #edf2f7;
+    transition: 0.2s;
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.btn {
+    display: inline-block;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+}
+
+.btn-success {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* ===========================
+   FORMS
+=========================== */
+
+form {
+    margin-top: 15px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+form input,
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 15px;
+    font-size: 14px;
+    transition: border 0.3s;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 5px rgba(49,130,206,0.3);
+}
+
+/* ===========================
+   NAVIGATION BAR
+=========================== */
+
+.navbar {
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--primary-color);
+    margin-right: 20px;
+    font-weight: 500;
+}
+
+.navbar a:hover {
+    color: var(--accent-color);
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 15px;
+    font-size: 14px;
+    color: #718096;
+}
+
+/* ===========================
+   QUIZ RADIO ALIGNMENT
+=========================== */
+
+.quiz-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.quiz-option input[type="radio"] {
+    margin-right: 10px;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
+/* ===========================
+   RESPONSIVE DESIGN
+=========================== */
+
+@media (max-width: 768px) {
+    .site-header h1 {
+        font-size: 20px;
+    }
+
+    table th, table td {
+        padding: 8px;
+    }
+
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
