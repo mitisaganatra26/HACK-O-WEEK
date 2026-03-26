@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8-Image Full Shine Portfolio</title>
+
+<style>
+:root {
+    --bg-gradient: linear-gradient(135deg, #a5b4fc, #818cf8, #f472b6);
+    --card-inner-bg: #1e1b4b; 
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--bg-gradient);
+    margin: 0;
+    color: white;
+}
+
+/* SLIDESHOW */
+.hero-slideshow {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+}
+.slide { position: absolute; inset: 0; opacity: 0; transition: 1s; }
+.slide.active { opacity: 1; }
+.slide img { width: 100%; height: 100%; object-fit: cover; }
+
+/* GRID */
+.container { padding: 50px; }
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    perspective: 1200px; 
+}
+
+/* CARD */
+.gallery-card {
+    border-radius: 28px;
+    padding: 5px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transform-style: preserve-3d;
+    z-index: 1;
+}
+
+/* ✨ GLITTER BORDER */
+.gallery-card::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 30px;
+    background: linear-gradient(
+        60deg,
+        rgba(255, 0, 127, 0.7),
+        rgba(255, 215, 0, 0.7),
+        rgba(255, 255, 255, 0.7),
+        rgba(255, 105, 180, 0.7),
+        rgba(255, 215, 0, 0.7),
+        rgba(255, 0, 127, 0.7)
+    );
+    background-size: 300%;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    filter: blur(2px);
+    animation: glitterMove 6s linear infinite;
+}
+
+.gallery-card:hover {
+    transform: translateY(-10px) scale(1.02) rotateX(2deg);
+    box-shadow: 
+        0 25px 50px rgba(0,0,0,0.4),
+        0 10px 20px rgba(0,0,0,0.25),
+        0 0 20px rgba(255,105,180,0.4);
+    z-index: 10;
+}
+
+.gallery-card:hover::after {
+    opacity: 0.7;
+}
+
+@keyframes glitterMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 400% 50%; }
+}
+
+/* INNER CONTENT */
+.inner-content {
+    background: var(--card-inner-bg);
+    border-radius: 23px;
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+}
+
+.inner-content img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-card:hover img {
+    transform: scale(1.1);
+}
+
+/* SLOW INTENSE DIAGONAL EFFECT */
+.card-text {
+    position: relative;
+    padding: 15px;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 0 0 23px 23px;
+    background: #110e36; /* Darker base for more intense color contrast */
+    z-index: 1;
+}
+
+.card-text::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* High intensity solid colors */
+    background: linear-gradient(
+        135deg, 
+        #110e36 0%, 
+        #ff007f 30%, 
+        #ffd700 50%, 
+        #00d4ff 70%, 
+        #110e36 100%
+    );
+    background-size: 400% 400%;
+    background-position: 100% 100%;
+    /* Slower transition: 2.5 seconds */
+    transition: background-position 2.5s ease-in-out, opacity 0.5s;
+    opacity: 0;
+    z-index: 0;
+}
+
+.gallery-card:hover .card-text::before {
+    opacity: 1;
+    background-position: 0% 0%;
+}
+
+.card-text h3 {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Shadow to keep text readable against intense colors */
+    transition: transform 0.3s ease;
+}
+
+.gallery-card:hover h3 {
+    transform: scale(1.1);
+}
+
+/* MODAL */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 15px;
+}
+
+.back-btn {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    padding: 10px 18px;
+    border-radius: 25px;
+    background: linear-gradient(90deg, #ff007f, #ffd700);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero-slideshow" id="slideshow"></div>
+
+<div class="container">
+    <h1 style="text-align:center; font-size: 3rem; margin-bottom: 40px;">
+        My Sparkle Collection
+    </h1>
+    <div class="gallery-grid" id="gallery"></div>
+</div>
+
+<div class="modal" id="modal">
+    <button class="back-btn" onclick="closeModal()">← Back</button>
+    <img id="big-img">
+</div>
+
+<script>
+const images = [
+    {src:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Mercury_in_true_color.jpg/330px-Mercury_in_true_color.jpg", title:"Mercury"},
+    {src:"https://assets.science.nasa.gov/dynamicimage/assets/science/cds/general/images/pia00271/PIA00271~large.jpg", title:"Venus"},
+    {src:"https://images.pexels.com/photos/87651/earth-blue-planet-globe-planet-87651.jpeg", title:"Earth"},
+    {src:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/OSIRIS_Mars_true_color.jpg/500px-OSIRIS_Mars_true_color.jpg", title:"Mars"},
+    {src:"https://cdn.esahubble.org/archives/images/screen/heic2017a.jpg", title:"Jupiter"},
+    {src:"https://cdn.esahubble.org/archives/images/screen/heic1917a.jpg", title:"Saturn"},
+    {src:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXw1Nu-Jjhvo5btuDvfNdr3dUBqno5UfqXfQ&s", title:"Uranus"},
+    {src:"https://upload.wikimedia.org/wikipedia/commons/5/56/Neptune_Full.jpg", title:"Neptune"}
+];
+
+const slideshow = document.getElementById("slideshow");
+images.forEach((img, i) => {
+    const div = document.createElement("div");
+    div.className = "slide" + (i === 0 ? " active" : "");
+    div.innerHTML = `<img src="${img.src}">`;
+    slideshow.appendChild(div);
+});
+
+const gallery = document.getElementById("gallery");
+images.forEach(img => {
+    const card = document.createElement("div");
+    card.className = "gallery-card";
+    card.onclick = () => openModal(img.src);
+
+    card.innerHTML = `
+        <div class="inner-content">
+            <img src="${img.src}">
+            <div class="card-text"><h3>${img.title}</h3></div>
+        </div>
+    `;
+    gallery.appendChild(card);
+});
+
+let slideIndex = 0;
+const slides = document.querySelectorAll(".slide");
+setInterval(() => {
+    slides[slideIndex].classList.remove("active");
+    slideIndex = (slideIndex + 1) % slides.length;
+    slides[slideIndex].classList.add("active");
+}, 3000);
+
+function openModal(src) {
+    document.getElementById("modal").style.display = "flex";
+    document.getElementById("big-img").src = src;
+    document.body.style.overflow = "hidden";
+}
+
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
+    document.getElementById("big-img").src = "";
+    document.body.style.overflow = "auto";
+}
+</script>
+
+</body>
+</html>
