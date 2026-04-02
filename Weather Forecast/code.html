@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyCast 2026</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-logo">SkyCast 2026</div>
+    <ul class="nav-links">
+        <li><a href="#" onclick="showSection('current')">Current</a></li>
+        <li><a href="#" onclick="showSection('forecast-section')">Forecast</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <div id="current" class="content-section">
+        <div class="weather-card">
+            <div class="search">
+                <div class="search-container">
+                    <input type="text" id="cityInput" placeholder="Enter city..." autocomplete="off">
+                    <div id="suggestions" class="suggestions-box"></div>
+                </div>
+                <button id="searchBtn">Search</button>
+            </div>
+
+            <h1 id="city">City</h1>
+            <div id="icon-container">
+                <img id="mainIcon" src="" alt="" style="display:none; width: 140px; margin: 0 auto;">
+            </div>
+            <h2 id="temp">--°C</h2>
+            <p id="description">---</p>
+
+            <div class="details-grid">
+                <div class="detail-item">
+                    <span class="label">Humidity</span>
+                    <strong id="humidity">--%</strong>
+                </div>
+                <div class="detail-item">
+                    <span class="label">AQI</span>
+                    <strong id="aqi">--</strong>
+                </div>
+                <div class="detail-item">
+                    <span class="label">Sunrise</span>
+                    <strong id="sunrise">--</strong>
+                </div>
+                <div class="detail-item">
+                    <span class="label">Sunset</span>
+                    <strong id="sunset">--</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="forecast-section" class="content-section" style="display:none;">
+        <div class="forecast-container">
+            <div class="forecast-header">
+                <button class="back-btn" onclick="showSection('current')">← Back</button>
+                <h2 id="forecastCity">Forecast</h2>
+            </div>
+            <div class="forecast-list" id="forecastGrid"></div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2026 SkyCast Weather. Created by Mitisa Ganatra. Powered by <a href="https://openweathermap.org/" target="_blank">OpenWeatherMap</a></p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
