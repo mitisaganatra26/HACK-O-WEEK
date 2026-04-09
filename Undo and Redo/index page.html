@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Hub | Tic-Tac-Toe & Puzzle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="ttt-bg">
+
+<nav>
+    <div class="logo">🎮 Game Hub</div>
+    <div class="nav-links">
+        <button id="ttt-nav" class="active" onclick="showGame('ttt', this)">Tic-Tac-Toe</button>
+        <button id="puzzle-nav" onclick="showGame('puzzle', this)">Photo Puzzle</button>
+    </div>
+</nav>
+
+<main>
+    <section id="ttt-section" class="game-section active">
+        <div class="title-box">
+            <h2>Tic-Tac-Toe</h2>
+        </div>
+        
+        <div class="grid-wrapper">
+            <div id="ttt-grid"></div>
+            <svg id="winning-line-svg">
+                <line id="winning-line" x1="0" y1="0" x2="0" y2="0" />
+            </svg>
+        </div>
+
+        <p id="ttt-status" class="status">Turn: X</p>
+
+        <div class="controls">
+            <button class="btn-main" onclick="undoTTT()">Undo</button>
+            <button class="btn-main" onclick="redoTTT()">Redo</button>
+            <button class="btn-reset" onclick="resetTTT()">Reset</button>
+        </div>
+    </section>
+
+    <section id="puzzle-section" class="game-section">
+        <div class="title-box">
+            <h2>Photo Puzzle</h2>
+        </div>
+
+        <div class="grid-wrapper">
+            <div id="puzzle-grid"></div>
+        </div>
+
+        <p id="puzzle-status" class="status">Can you solve it?</p>
+
+        <div class="controls">
+            <button class="btn-main" onclick="undoPuzzle()">Undo</button>
+            <button class="btn-main" onclick="redoPuzzle()">Redo</button>
+            <button class="btn-shuffle" onclick="shufflePuzzle()">Shuffle</button>
+        </div>
+    </section>
+</main>
+
+<footer>
+    Made with ❤️ | Game Hub Project 2026
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
