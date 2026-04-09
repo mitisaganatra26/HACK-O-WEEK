@@ -1,0 +1,140 @@
+:root {
+    --primary: #4f46e5;
+    --accent: #f43f5e;
+    --text: #1e293b;
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --border: #cbd5e1;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Background Images */
+.ttt-bg { background: url('https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&q=80&w=2000') no-repeat center/cover fixed; }
+.puzzle-bg { background: url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=2000') no-repeat center/cover fixed; }
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.nav-links button {
+    background: none; border: none; font-weight: bold; cursor: pointer; color: #64748b; margin-left: 15px; font-size: 1rem;
+}
+.nav-links button.active { color: var(--primary); border-bottom: 3px solid var(--primary); }
+
+main { 
+    flex: 1; 
+    padding: 40px 20px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-section { 
+    display: none; 
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.game-section.active { display: flex; }
+
+.title-box {
+    background: white;
+    padding: 12px 45px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+.title-box h2 { margin: 0; color: var(--primary); font-size: 1.8rem; }
+
+.grid-wrapper {
+    position: relative;
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+}
+
+#ttt-grid, #puzzle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 110px);
+    gap: 12px;
+}
+
+/* DEFINED CELLS */
+.ttt-cell {
+    width: 110px; height: 110px; 
+    background: #f8fafc;
+    border: 3px solid var(--border);
+    border-radius: 15px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    font-size: 3.5rem; 
+    font-weight: 800; 
+    cursor: pointer; 
+    transition: all 0.2s;
+}
+
+.tile {
+    width: 110px; height: 110px; 
+    border: 2px solid #fff;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.tile.empty { background: #cbd5e1; border: 2px dashed #94a3b8; }
+
+/* Status Text */
+.status { 
+    font-weight: bold; font-size: 1.6rem; margin-bottom: 20px; 
+    color: white; text-shadow: 0 2px 8px rgba(0,0,0,0.8); 
+}
+
+/* CONTROLS */
+.controls button {
+    padding: 16px 36px;
+    margin: 8px; 
+    border: none; 
+    border-radius: 14px;
+    font-size: 1.1rem;
+    font-weight: bold; 
+    cursor: pointer; 
+    transition: 0.3s; 
+    color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+.btn-main { background: var(--primary); }
+.btn-reset, .btn-shuffle { background: var(--accent); }
+
+/* SVG WINNING LINE */
+#winning-line-svg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 10;
+    display: none;
+}
+#winning-line { stroke: #fbbf24; stroke-width: 12; stroke-linecap: round; }
+
+footer { text-align: center; padding: 20px; background: white; width: 100%; box-sizing: border-box; }
